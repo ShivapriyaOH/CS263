@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is Jaggery.js? &mdash; Shivapriya_project 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Shivapriya_project 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Jaggery.js" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Jaggery.js"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Shivapriya_project 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="what-is-jaggery-js">
+<h1>What is Jaggery.js?<a class="headerlink" href="#what-is-jaggery-js" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="serverside-scripting">
+<h2>Serverside scripting<a class="headerlink" href="#serverside-scripting" title="Permalink to this headline">¶</a></h2>
+<p>Server-side scripting is used in website design to embed scripts in HTML code so that user’s request to the server can be handled by the script running server-side before the server responds to the client’s request. It is used to provide an interface and to limit client access to databases and other sources. Setting up a Web application today can be a nightmare since all of the different components (UI, back-end, server-side logic etc) are written using different languages. In every step there is a mismatched conversion which leads to a potential loss of information. These platforms are an attempted solution to these problems.</p>
+</div>
+<div class="section" id="jaggery-js">
+<h2>Jaggery.js<a class="headerlink" href="#jaggery-js" title="Permalink to this headline">¶</a></h2>
+<p>JaggeryJS offers a completely Javascript way to write all parts of Web applications and services as a way to reduce/eliminate impedance mismatches across different layers of the Web application and API development experience.It is a  framework to write webapps and HTTP-focused web services in pure Javascript for all aspects of the application: front-end, communication, Server-side logic and persistence.It closes the gap between Web apps from Web services by allowing one to create both applications and APIs at the same time.</p>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-install-jaggery-js">
+<h2>How to install Jaggery.js?<a class="headerlink" href="#how-to-install-jaggery-js" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Download the jaggery package from <a class="reference external" href="http://jaggeryjs.org/">here</a> and extract jaggery-0.9.0-SNAPSHOT_ALPHA3.zip to a directory you prefer. Lets call it JAGGERY_HOME</li>
+<li>Make sure you have set the environment variable JAVA_HOME to point to your jdk installation</li>
+<li>Navigate to JAGGERY_HOME/bin directory which contains all the Jaggery execution scripts</li>
+<li>Run &#8220;sh JAGGERY_HOME/bin/server.sh&#8221;   (JAGGERY_HOME/bin/server.batin windows) command to start the server</li>
+</ul>
+</div>
+<div class="section" id="the-hello-world-jaggery-app">
+<h2>The &#8220;Hello World&#8221; Jaggery App<a class="headerlink" href="#the-hello-world-jaggery-app" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Create a directory called helloapp at {JAGGERY_HOME}/apps/</p>
+</li>
+<li><p class="first">Create a jaggery file helloworld.jag inside the helloapp directory and add the following code snippet</p>
+<div class="highlight-python"><pre>&lt;%
+        var name = 'Jaggery';
+        print("Hello " + name);
+%&gt;</pre>
+</div>
+</li>
+<li><p class="first">Thats it! now point the browser to <a class="reference external" href="http://localhost:9763/helloapp/helloworld.jag">http://localhost:9763/helloapp/helloworld.jag</a></p>
+</li>
+</ul>
+<img alt="_images/HelloWorldOP.png" src="_images/HelloWorldOP.png" />
+</div>
+</div>
+<div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>We have provided all the basic useful APIs, so that we can build cooler apps using this deliciously new framework</li>
+<li>The APIs are listed in the <a class="reference external" href="http://jaggeryjs.org/documentation.jag">jaggery website</a></li>
+</ul>
+<div class="section" id="built-ins">
+<h2>Built-ins<a class="headerlink" href="#built-ins" title="Permalink to this headline">¶</a></h2>
+<p>There are a few Built-ins :</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Http Client</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/get.jag">get</a></li>
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/post.jag">post</a></li>
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/get.jag">put</a></li>
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/get.jag">del</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Utils</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/urimatcher.jag">URI Matcher</a></li>
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/include.jag">include</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="http://jaggeryjs.org/apidocs/feed.jag">Feed</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://jaggeryjs.org/apidocs/file.jag">File System</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://jaggeryjs.org/apidocs/rdb.jag">Data Storage</a></p>
+</li>
+<li><dl class="first docutils">
+<dt>Data Format</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>JSON</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/parse.jag">parse</a></li>
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/stringify.jag">stringify</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><a class="reference external" href="http://jaggeryjs.org/apidocs/xml.jag">XML</a></p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="add-ons">
+<h2>Add ons<a class="headerlink" href="#add-ons" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Email</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/sender.jag">Sender</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Web Services</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/ws.jag">WSRequest</a></li>
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/wsstub.jag">WSStub</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Authentication</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/oauth.jag">OAuth</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Server</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://jaggeryjs.org/apidocs/process.jag">Process</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="a-simple-application-of-using-mysql-in-jaggery">
+<h1>A simple application of using MySQL in Jaggery<a class="headerlink" href="#a-simple-application-of-using-mysql-in-jaggery" title="Permalink to this headline">¶</a></h1>
+<p>Prerequisites:
+- You will need a jdbc driver jar.You can dowload this jar &#8220;mysql_connector_java_5.1.10_bin_1.0.0&#8221; from <a class="reference external" href="http://www.4shared.com/file/ELPzjU5j/mysql_connector_java_5110_bin_.html?">here</a></p>
+<ul class="simple">
+<li>Paste mysql_connector_java_5.1.10_bin_1.0.0.jar  in {JAGGERY_HOME}\carbon\repository\components\dropins\</li>
+<li>Install MySQL</li>
+</ul>
+<p>This post will help you create jaggery App for to testing below use cases:</p>
+<ol class="arabic simple">
+<li>Create table in MySQL from Jaggery code</li>
+<li>Insert data to it MySQL from Jaggery applications</li>
+<li>View the data in MySQL from Jaggery</li>
+</ol>
+<ol class="arabic">
+<li><p class="first">Create table in MySQL from Jaggery code</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create Application name testmysql (Create Folder &#8216;testmysql&#8217; in {JAGGERY_HOME}/apps/)</li>
+<li>Create test.jag file in &#8216;testmysql&#8217; folder.</li>
+<li>Add below content</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;%</dt>
+<dd><p class="first">var query1  =&#8221;CREATE TABLE test(character_name varchar(30),house_name(20));&#8221;;
+config = {};
+var db = new Database(&#8220;<a class="reference external" href="jdbc:mysql://localhost:3306/mysql">jdbc:mysql://localhost:3306/mysql</a>&#8221;, &#8220;root&#8221;, &#8220;root&#8221;, config);
+try{</p>
+<blockquote>
+<div>db.query(query1);
+print(&#8216;Created the table&#8217;);</div></blockquote>
+<p>}
+catch(e){</p>
+<blockquote>
+<div>print(e.toString());</div></blockquote>
+<p>}
+finally{</p>
+<blockquote>
+<div>db.close();</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>%&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Note <span class="classifier-delimiter">:</span> <span class="classifier">Database(&#8220;<a class="reference external" href="jdbc:mysql:/">jdbc:mysql:/</a>/&lt;mysql host&gt;:&lt;port&gt;/&lt;database&gt;&#8221;, &#8220;&lt;mysql_username&gt;&#8221;, &#8220;&lt;mysql_password&gt;&#8221;, config);</span></dt>
+<dd><ul class="first last simple">
+<li>Start Jaggery server and go to ‘<a class="reference external" href="http://localhost:9763/testmysql/test.jag">http://localhost:9763/testmysql/test.jag</a>’</li>
+<li>Go to MySQL console and go to database test (use test;) and enter &#8216;show tables&#8217;</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<img alt="_images/create.png" src="_images/create.png" />
+<ol class="arabic" start="2">
+<li><p class="first">Insert data to MySQL from jaggery applications</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Now change query to insert data to table such as</p>
+<div class="highlight-python"><pre>var query1  ="INSERT INTO test (character_name, house_name) VALUES('Hermione Granger', 'Gryffindor' );";</pre>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<img alt="_images/insert.png" src="_images/insert.png" />
+<ol class="arabic" start="3">
+<li><p class="first">View the data in MySQL from jaggery</p>
+<blockquote>
+<div><ul>
+<li><p class="first">In here we will have return and we will make it print in jaggery page</p>
+<div class="highlight-python"><pre>var query1  ="SELECT * FROM test;";
+var results = db.query(query1);
+print(results);</pre>
+</div>
+</li>
+<li><p class="first">Testing from MySQL</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<img alt="_images/select.png" src="_images/select.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is Jaggery.js?</a><ul>
+<li><a class="reference internal" href="#serverside-scripting">Serverside scripting</a></li>
+<li><a class="reference internal" href="#jaggery-js">Jaggery.js</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li><a class="reference internal" href="#how-to-install-jaggery-js">How to install Jaggery.js?</a></li>
+<li><a class="reference internal" href="#the-hello-world-jaggery-app">The &#8220;Hello World&#8221; Jaggery App</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api">API</a><ul>
+<li><a class="reference internal" href="#built-ins">Built-ins</a></li>
+<li><a class="reference internal" href="#add-ons">Add ons</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-simple-application-of-using-mysql-in-jaggery">A simple application of using MySQL in Jaggery</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Jaggery.js</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/jaggery.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Jaggery.js"
+             >previous</a> |</li>
+        <li><a href="index.html">Shivapriya_project 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Shivapriya Hiremath.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

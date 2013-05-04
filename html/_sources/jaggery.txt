@@ -1,0 +1,35 @@
+What is Jaggery.js?
+===================
+
+
+Serverside scripting
+--------------------
+Server-side scripting is used in website design to embed scripts in HTML code so that user’s request to the server can be handled by the script running server-side before the server responds to the client’s request. It is used to provide an interface and to limit client access to databases and other sources. Setting up a Web application today can be a nightmare since all of the different components (UI, back-end, server-side logic etc) are written using different languages. In every step there is a mismatched conversion which leads to a potential loss of information. These platforms are an attempted solution to these problems.
+
+
+Jaggery.js
+----------
+JaggeryJS offers a completely Javascript way to write all parts of Web applications and services as a way to reduce/eliminate impedance mismatches across different layers of the Web application and API development experience.It is a  framework to write webapps and HTTP-focused web services in pure Javascript for all aspects of the application: front-end, communication, Server-side logic and persistence.It closes the gap between Web apps from Web services by allowing one to create both applications and APIs at the same time.
+
+Getting Started
+===============
+
+How to install Jaggery.js?
+--------------------------
+
+- Download the jaggery package from `here <http://jaggeryjs.org/>`_ and extract jaggery-0.9.0-SNAPSHOT_ALPHA3.zip to a directory you prefer. Lets call it JAGGERY_HOME
+- Make sure you have set the environment variable JAVA_HOME to point to your jdk installation
+- Navigate to JAGGERY_HOME/bin directory which contains all the Jaggery execution scripts
+- Run sh JAGGERY_HOME/bin/server.sh   (JAGGERY_HOME/bin/server.batin windows) command to start the server
+
+The "Hello World" Jaggery App
+-----------------------------
+- Create a directory called helloapp at {JAGGERY_HOME}/apps/
+- Create a jaggery file helloworld.jag inside the helloapp directory and add the following code snippet ::
+
+	<%
+    		var name = 'Jaggery';
+    		print("Hello " + name);
+	%>
+						
+- Thats it! now point to http://localhost:9763/helloapp/helloworld.jag
