@@ -83,7 +83,7 @@
 <li><p class="first">Thats it! now point the browser to <a class="reference external" href="http://localhost:9763/helloapp/helloworld.jag">http://localhost:9763/helloapp/helloworld.jag</a></p>
 </li>
 </ul>
-<img alt="_images/HelloWorldOP.png" src="_images/HelloWorldOP.png" />
+<img alt="_static/HelloJaggery.png" src="_static/HelloJaggery.png" />
 </div>
 </div>
 <div class="section" id="api">
@@ -189,62 +189,53 @@
 <li>Paste mysql_connector_java_5.1.10_bin_1.0.0.jar  in {JAGGERY_HOME}\carbon\repository\components\dropins\</li>
 <li>Install MySQL</li>
 </ul>
-<p>This post will help you create jaggery App for to testing below use cases:</p>
+<p>This post will help you create jaggery App for testing below use cases:</p>
 <ol class="arabic simple">
-<li>Create table in MySQL from Jaggery code</li>
-<li>Insert data to it MySQL from Jaggery applications</li>
+<li>Create a table in MySQL from Jaggery code</li>
+<li>Insert data to the table in MySQL from Jaggery application</li>
 <li>View the data in MySQL from Jaggery</li>
 </ol>
 <ol class="arabic">
 <li><p class="first">Create table in MySQL from Jaggery code</p>
 <blockquote>
+<div><ul>
+<li><p class="first">Create Application name testmysql (Create Folder &#8216;testmysql&#8217; in {JAGGERY_HOME}/apps/)</p>
+</li>
+<li><p class="first">Create test.jag file in &#8216;testmysql&#8217; folder</p>
+</li>
+<li><p class="first">Add the below code snippet</p>
+<div class="highlight-python"><pre>var query1  ="CREATE TABLE test(character_name varchar(30),house_name(20));";
+config = {};
+var db = new Database("jdbc:mysql://localhost:3306/mysql", "root", "root", config);
+try{
+       db.query(query1);
+       print('Created the table');
+}
+catch(e){
+       print(e.toString());
+}
+finally{
+       db.close();
+}</pre>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>Note : Database(&#8220;<a class="reference external" href="jdbc:mysql:/">jdbc:mysql:/</a>/&lt;mysql host&gt;:&lt;port&gt;/&lt;database&gt;&#8221;, &#8220;&lt;mysql_username&gt;&#8221;, &#8220;&lt;mysql_password&gt;&#8221;, config);</p>
+<blockquote>
 <div><ul class="simple">
-<li>Create Application name testmysql (Create Folder &#8216;testmysql&#8217; in {JAGGERY_HOME}/apps/)</li>
-<li>Create test.jag file in &#8216;testmysql&#8217; folder.</li>
-<li>Add below content</li>
+<li>Start Jaggery server and go to ‘<a class="reference external" href="http://localhost:9763/testmysql/test.jag">http://localhost:9763/testmysql/test.jag</a>’</li>
+<li>Go to MySQL console and enter &#8216;show tables;&#8217;</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
-<blockquote>
-<div><dl class="docutils">
-<dt>&lt;%</dt>
-<dd><p class="first">var query1  =&#8221;CREATE TABLE test(character_name varchar(30),house_name(20));&#8221;;
-config = {};
-var db = new Database(&#8220;<a class="reference external" href="jdbc:mysql://localhost:3306/mysql">jdbc:mysql://localhost:3306/mysql</a>&#8221;, &#8220;root&#8221;, &#8220;root&#8221;, config);
-try{</p>
-<blockquote>
-<div>db.query(query1);
-print(&#8216;Created the table&#8217;);</div></blockquote>
-<p>}
-catch(e){</p>
-<blockquote>
-<div>print(e.toString());</div></blockquote>
-<p>}
-finally{</p>
-<blockquote>
-<div>db.close();</div></blockquote>
-<p class="last">}</p>
-</dd>
-</dl>
-<p>%&gt;</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>Note <span class="classifier-delimiter">:</span> <span class="classifier">Database(&#8220;<a class="reference external" href="jdbc:mysql:/">jdbc:mysql:/</a>/&lt;mysql host&gt;:&lt;port&gt;/&lt;database&gt;&#8221;, &#8220;&lt;mysql_username&gt;&#8221;, &#8220;&lt;mysql_password&gt;&#8221;, config);</span></dt>
-<dd><ul class="first last simple">
-<li>Start Jaggery server and go to ‘<a class="reference external" href="http://localhost:9763/testmysql/test.jag">http://localhost:9763/testmysql/test.jag</a>’</li>
-<li>Go to MySQL console and go to database test (use test;) and enter &#8216;show tables&#8217;</li>
-</ul>
-</dd>
-</dl>
-</div></blockquote>
-</div></blockquote>
 <img alt="_images/create.png" src="_images/create.png" />
 <ol class="arabic" start="2">
 <li><p class="first">Insert data to MySQL from jaggery applications</p>
 <blockquote>
 <div><ul>
-<li><p class="first">Now change query to insert data to table such as</p>
+<li><p class="first">Now change query to insert data to table</p>
 <div class="highlight-python"><pre>var query1  ="INSERT INTO test (character_name, house_name) VALUES('Hermione Granger', 'Gryffindor' );";</pre>
 </div>
 </li>
@@ -257,19 +248,38 @@ finally{</p>
 <li><p class="first">View the data in MySQL from jaggery</p>
 <blockquote>
 <div><ul>
-<li><p class="first">In here we will have return and we will make it print in jaggery page</p>
+<li><p class="first">We retrieve the data from the database and we will make it print on the jaggery page</p>
 <div class="highlight-python"><pre>var query1  ="SELECT * FROM test;";
 var results = db.query(query1);
 print(results);</pre>
 </div>
 </li>
-<li><p class="first">Testing from MySQL</p>
-</li>
 </ul>
 </div></blockquote>
 </li>
 </ol>
-<img alt="_images/select.png" src="_images/select.png" />
+<img alt="_static/db_output.png" src="_static/db_output.png" />
+<p>Here is the complete code with all the three queries</p>
+<div class="highlight-python"><pre>&lt;%
+     var query1  ="CREATE TABLE IF NOT EXISTS test(character_name varchar(30),house_name(20));";
+     var query2  ="INSERT INTO test (character_name, house_name) VALUES('Hermione Granger', 'Gryffindor' );";
+     var query3  ="SELECT * FROM test;";
+     config = {};
+     var db = new Database("jdbc:mysql://localhost:3306/mysql", "root", "root", config);
+     try{
+             db.query(query1);
+             db.query(query2);
+             var results = db.query(query3);
+             print(results);
+     }
+     catch(e){
+             print(e.toString());
+     }
+     finally{
+             db.close();
+     }
+%&gt;</pre>
+</div>
 </div>
 
 

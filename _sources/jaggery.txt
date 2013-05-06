@@ -34,7 +34,7 @@ The "Hello World" Jaggery App
 						
 - Thats it! now point the browser to http://localhost:9763/helloapp/helloworld.jag
 
-.. image:: _static/HelloWorldOP.png
+.. image:: _static/HelloJaggery.png
 
 API
 ============
@@ -98,11 +98,11 @@ Prerequisites:
 
 - Install MySQL 
 
-This post will help you create jaggery App for to testing below use cases:
+This post will help you create jaggery App for testing below use cases:
 
-1. Create table in MySQL from Jaggery code
+1. Create a table in MySQL from Jaggery code
 
-2. Insert data to it MySQL from Jaggery applications
+2. Insert data to the table in MySQL from Jaggery application
 
 3. View the data in MySQL from Jaggery
 
@@ -111,38 +111,41 @@ This post will help you create jaggery App for to testing below use cases:
 
       - Create Application name testmysql (Create Folder 'testmysql' in {JAGGERY_HOME}/apps/)
 
-      - Create test.jag file in 'testmysql' folder.
+      - Create test.jag file in 'testmysql' folder
 
-      - Add below content ::
+      - Add the below code snippet ::
 
-
-  <%
-     var query1  ="CREATE TABLE test(character_name varchar(30),house_name(20));"; 
-     config = {}; 
-     var db = new Database("jdbc:mysql://localhost:3306/mysql", "root", "root", config); 
-     try{
-        db.query(query1); 
-        print('Created the table'); 
-     } 
-     catch(e){ 
-        print(e.toString()); 
-     } 
-     finally{ 
-        db.close(); 
-     }
-  %>
+     
+     	 var query1  ="CREATE TABLE test(character_name varchar(30),house_name(20));"; 
+         config = {}; 
+     	 var db = new Database("jdbc:mysql://localhost:3306/mysql", "root", "root", config); 
+     	 try{
+		db.query(query1); 
+        	print('Created the table'); 
+     	 } 
+	 catch(e){ 
+        	print(e.toString()); 
+     	 } 
+     	 finally{ 
+        	db.close(); 
+     	 }
+     
 
    Note : Database("jdbc:mysql://<mysql host>:<port>/<database>", "<mysql_username>", "<mysql_password>", config);
+
+
      - Start Jaggery server and go to ‘http://localhost:9763/testmysql/test.jag’
 
-     - Go to MySQL console and go to database test (use test;) and enter 'show tables'
+
+     - Go to MySQL console and enter 'show tables;'
+
 
 .. image:: _static/create.png
 
 
 2) Insert data to MySQL from jaggery applications
 
-     - Now change query to insert data to table such as ::
+     - Now change query to insert data to table ::
 
          var query1  ="INSERT INTO test (character_name, house_name) VALUES('Hermione Granger', 'Gryffindor' );";
 
@@ -150,14 +153,35 @@ This post will help you create jaggery App for to testing below use cases:
 
 3) View the data in MySQL from jaggery
 
-     - In here we will have return and we will make it print in jaggery page ::
+     - We retrieve the data from the database and we will make it print on the jaggery page ::
 
          var query1  ="SELECT * FROM test;";
          var results = db.query(query1); 
          print(results);
 
-     - Testing from MySQL
+     
 
-.. image:: _static/select.png
+.. image:: _static/db_output.png
 
 
+Here is the complete code with all the three queries ::
+
+   <%
+	var query1  ="CREATE TABLE IF NOT EXISTS test(character_name varchar(30),house_name(20));";
+	var query2  ="INSERT INTO test (character_name, house_name) VALUES('Hermione Granger', 'Gryffindor' );";
+	var query3  ="SELECT * FROM test;";
+	config = {};
+	var db = new Database("jdbc:mysql://localhost:3306/mysql", "root", "root", config);
+	try{
+		db.query(query1);
+		db.query(query2);
+		var results = db.query(query3);
+		print(results);
+	}
+	catch(e){
+		print(e.toString());
+	}
+	finally{
+		db.close();
+	}
+   %>
